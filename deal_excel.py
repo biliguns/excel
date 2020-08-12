@@ -52,3 +52,4 @@ if __name__=='__main__':
     path=os.getcwd() + "\\" + r'Source'
     getFileNames(path)
     writeFile()
+    print("已完成存储")
