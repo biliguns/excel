@@ -24,21 +24,17 @@ def getFileNames(path):
 def getSheetNames(path,sFileName):
     temp = input("--------------------想读取第几列的数据：")
     col = int(temp) - 1
-    wb = xlrd.open_workbook(path+'\\'+sFileName)
-    # 获取workbook中所有的表格
+    wb = xlrd.open_workbook(path+'\\'+sFileName)# 获取workbook中所有的数据
     sheet = wb.sheet_by_index(0) # 根据sheet索引或者名称获取sheet内容 sheet索引从0开始
     print(sheet.name, sheet.nrows, sheet.ncols) # sheet的名称，行数，列数
-    for row in sheet.col_values(col):  #列
+    for row in sheet.col_values(col):  #读取列数据存入list
         list.append(row)
 
 def writeFile():
     f = openpyxl.Workbook()  # 创建工作簿
-    # sheet1 = f.create_sheet()
-    print("sheet names:", f.sheetnames)
     sheet1 = f.active   # 当前工作表的名称
-    print("sheet1:", sheet1)
-    row_file = len(list) # 生成5行
-    col_three = 1 # 生成3列
+    row_file = len(list) # 生成n行
+    col_three = 1 # 生成1列
 
     for row in range(row_file):
         for col in range(col_three):
